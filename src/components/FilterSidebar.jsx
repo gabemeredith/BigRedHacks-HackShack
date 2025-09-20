@@ -3,7 +3,9 @@ import Slider from 'rc-slider';
 import { useFilters, AVAILABLE_CATEGORIES } from '../context/FilterContext';
 import PropTypes from 'prop-types';
 
-const FilterSidebar = ({ isOpen = true, onToggle }) => {
+const FilterSidebar = () => {
+  const [isOpen, setIsOpen] = useState(true)  // local state
+
   const {
     filters,
     updateRadius,
@@ -14,7 +16,8 @@ const FilterSidebar = ({ isOpen = true, onToggle }) => {
     resetFilters,
     hasActiveFilters,
     getActiveFilterCount
-  } = useFilters();
+  } = useFilters()
+
 
   const [localSearchQuery, setLocalSearchQuery] = useState(filters.searchQuery);
 
@@ -37,13 +40,31 @@ const FilterSidebar = ({ isOpen = true, onToggle }) => {
     <>
       {/* Mobile Toggle Button */}
       <button
-        onClick={onToggle}
-        className="lg:hidden fixed top-20 left-4 z-50 bg-white rounded-full p-3 shadow-lg border"
-      >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
-        </svg>
-      </button>
+  onClick={() => setIsOpen(!isOpen)}
+  className="lg:hidden fixed top-20 left-4 z-50 bg-white rounded-full p-3 shadow-lg border"
+>
+  {isOpen ? (
+    // Left arrow (close)
+    <svg
+      className="w-5 h-5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+    </svg>
+  ) : (
+    // Right arrow (open)
+    <svg
+      className="w-5 h-5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
+  )}
+</button>
 
       {/* Sidebar */}
       <div className={`
@@ -248,14 +269,6 @@ const FilterSidebar = ({ isOpen = true, onToggle }) => {
           </div>
         </div>
       </div>
-
-      {/* Overlay for mobile */}
-      {isOpen && (
-        <div
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
-          onClick={onToggle}
-        />
-      )}
     </>
   );
 };

@@ -12,7 +12,9 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DashboardLayout from './pages/dashboard/DashboardLayout'
 import DashboardOverview from './pages/dashboard/DashboardOverview'
+import FeedPage from './pages/FeedPage'
 import './App.css'
+
 
 function App() {
   const [serverStatus, setServerStatus] = useState('Checking...')
@@ -53,6 +55,8 @@ function App() {
                     {/* Dev Navigation */}
                     <div className="flex space-x-2 ml-6">
                       <Link to="/" className="text-primary-400 hover:text-primary-300">Home</Link>
+                      <Link to="/feed" className="text-primary-400 hover:text-primary-300">Feed</Link>
+
                       <Link to="/map" className="text-primary-400 hover:text-primary-300">Map</Link>
                       <Link to="/reel" className="text-primary-400 hover:text-primary-300">Reel</Link>
                       <Link to="/login" className="text-primary-400 hover:text-primary-300">Login</Link>
@@ -70,6 +74,7 @@ function App() {
             <div className={import.meta.env.DEV ? 'pt-10' : ''}>
               <Routes>
                 {/* Public Routes */}
+                <Route path="/feed" element={<FeedPage />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="/map" element={<MapView />} />
                 <Route path="/business/:businessId" element={<BusinessProfilePage />} />
