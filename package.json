@@ -1,27 +1,37 @@
 {
-  "name": "locallense",
-  "version": "1.0.0",
-  "description": "A modern full-stack web application built with the MERN stack",
-  "main": "server/server.js",
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:server": "cd server && npm run dev",
-    "dev:client": "cd client && npm run dev",
-    "build": "cd client && npm run build",
-    "start": "cd server && npm start",
-    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "mern",
-    "react",
-    "express",
-    "mongodb",
-    "nodejs"
-  ],
-  "author": "",
-  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "leaflet": "^1.9.4",
+    "prop-types": "^15.8.1",
+    "rc-slider": "^11.1.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^6.27.0",
+    "swiper": "^11.1.14"
+  },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "@eslint/js": "^9.35.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.35.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.4.0",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.15",
+    "vite": "^7.1.6"
   }
 }
-
