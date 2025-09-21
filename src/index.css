@@ -1,0 +1,116 @@
+
+/* Custom styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* Full screen layout */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overscroll-behavior-y: contain;
+    background: #000;
+    overflow-x: hidden;
+  }
+  
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ensure all main containers extend to full width */
+  .main-container, main, .page-container {
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  /* Hide scrollbars for clean reels experience */
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  /* Firefox scrollbar hiding */
+  * {
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden;
+  }
+  
+  .hero-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-40;
+  }
+  
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* Swiper Custom Styles */
+@layer utilities {
+  .business-carousel .swiper-button-next,
+  .business-carousel .swiper-button-prev {
+    @apply text-primary-600 bg-white rounded-full shadow-lg;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+  }
+  
+  .business-carousel .swiper-button-next:after,
+  .business-carousel .swiper-button-prev:after {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .business-carousel .swiper-pagination-bullet {
+    @apply bg-primary-600 opacity-50;
+  }
+  
+  .business-carousel .swiper-pagination-bullet-active {
+    @apply opacity-100;
+  }
+  
+  .business-carousel .swiper-slide {
+    height: auto;
+  }
+  
+  /* Reels-specific smooth scrolling utilities */
+  .reels-container {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior-y: contain;
+  }
+  
+  .reels-item {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
