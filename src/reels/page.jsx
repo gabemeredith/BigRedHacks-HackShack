@@ -9,28 +9,12 @@ function ReelsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Use hardcoded video data for hackathon demo
+    // Use hardcoded video data for hackathon demo (inverted order)
     const hardcodedVideos = [
       {
-        id: '1',
-        title: 'Amazing Local Business Content',
-        url: 'https://www.youtube.com/watch?v=Qb4zV2oFYyE',
-        businessName: 'Local Business Hub',
-        distanceMi: 0.5,
-        createdAt: new Date().toISOString()
-      },
-      {
-        id: '2',
-        title: 'Local Business Showcase',
-        url: 'https://www.youtube.com/watch?v=Z6Dx-o3vfJY',
-        businessName: 'Local Business Hub',
-        distanceMi: 0.5,
-        createdAt: new Date().toISOString()
-      },
-      {
-        id: '3',
-        title: 'Community Business Feature',
-        url: 'https://www.youtube.com/watch?v=SDMi6jeIwy4',
+        id: '5',
+        title: 'Featured Local Content',
+        url: 'https://youtu.be/4qGXBlszbTY',
         businessName: 'Local Business Hub',
         distanceMi: 0.5,
         createdAt: new Date().toISOString()
@@ -44,9 +28,25 @@ function ReelsPage() {
         createdAt: new Date().toISOString()
       },
       {
-        id: '5',
-        title: 'Featured Local Content',
-        url: 'https://youtu.be/4qGXBlszbTY',
+        id: '3',
+        title: 'Community Business Feature',
+        url: 'https://www.youtube.com/watch?v=SDMi6jeIwy4',
+        businessName: 'Local Business Hub',
+        distanceMi: 0.5,
+        createdAt: new Date().toISOString()
+      },
+      {
+        id: '2',
+        title: 'Local Business Showcase',
+        url: 'https://www.youtube.com/watch?v=Z6Dx-o3vfJY',
+        businessName: 'Local Business Hub',
+        distanceMi: 0.5,
+        createdAt: new Date().toISOString()
+      },
+      {
+        id: '1',
+        title: 'Amazing Local Business Content',
+        url: 'https://www.youtube.com/watch?v=Qb4zV2oFYyE',
         businessName: 'Local Business Hub',
         distanceMi: 0.5,
         createdAt: new Date().toISOString()
