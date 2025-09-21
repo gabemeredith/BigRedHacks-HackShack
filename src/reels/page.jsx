@@ -9,48 +9,55 @@ function ReelsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        setLoading(true);
-        // Use videos API endpoint
-        const response = await fetch('/api/videos');
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const apiResponse = await response.json();
-        console.log('🔍 Reels API response:', apiResponse);
-        console.log('📊 API data length:', apiResponse.data?.length);
-        console.log('🎬 First video URL:', apiResponse.data?.[0]?.url);
-        
-        // Check if we got valid data from API
-        if (apiResponse.success && apiResponse.data && apiResponse.data.length > 0) {
-          // Transform API data to ReelVideo format
-          const transformedVideos = apiResponse.data.map((item) => ({
-            id: item._id,
-            title: item.caption || item.title || `${item.business?.name || 'Business'} Video`,
-            url: item.url,
-            businessName: item.business?.name,
-            distanceMi: undefined, // Will be calculated if location data is available
-            createdAt: item.createdAt
-          }));
-          console.log('✅ Using API videos:', transformedVideos.length, 'videos');
-          console.log('🎯 First transformed video:', transformedVideos[0]);
-          setVideos(transformedVideos);
-        } else {
-          console.log('API returned empty data');
-          setVideos([]);
-        }
-      } catch (error) {
-        console.error('Error fetching videos from API:', error);
-        setVideos([]);
-      } finally {
-        setLoading(false);
+    // Use hardcoded video data for hackathon demo
+    const hardcodedVideos = [
+      {
+        id: '1',
+        title: 'Amazing Local Business Content',
+        url: 'https://www.youtube.com/watch?v=Qb4zV2oFYyE',
+        businessName: 'Local Business Hub',
+        distanceMi: 0.5,
+        createdAt: new Date().toISOString()
+      },
+      {
+        id: '2',
+        title: 'Local Business Showcase',
+        url: 'https://www.youtube.com/watch?v=Z6Dx-o3vfJY',
+        businessName: 'Local Business Hub',
+        distanceMi: 0.5,
+        createdAt: new Date().toISOString()
+      },
+      {
+        id: '3',
+        title: 'Community Business Feature',
+        url: 'https://www.youtube.com/watch?v=SDMi6jeIwy4',
+        businessName: 'Local Business Hub',
+        distanceMi: 0.5,
+        createdAt: new Date().toISOString()
+      },
+      {
+        id: '4',
+        title: 'Local Business Highlight',
+        url: 'https://www.youtube.com/watch?v=G6BZjXiLg8g',
+        businessName: 'Local Business Hub',
+        distanceMi: 0.5,
+        createdAt: new Date().toISOString()
+      },
+      {
+        id: '5',
+        title: 'Featured Local Content',
+        url: 'https://youtu.be/4qGXBlszbTY',
+        businessName: 'Local Business Hub',
+        distanceMi: 0.5,
+        createdAt: new Date().toISOString()
       }
-    };
+    ];
 
-    fetchVideos();
+    // Simulate loading time for better UX
+    setTimeout(() => {
+      setVideos(hardcodedVideos);
+      setLoading(false);
+    }, 1000);
   }, []);
   
   if (loading) {

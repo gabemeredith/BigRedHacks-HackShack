@@ -82,6 +82,43 @@ LocalLens is a revolutionary social platform that connects communities with loca
 ### Database Setup
 The application uses MongoDB Memory Server for development, which automatically creates an in-memory database when the server starts. No additional database setup is required.
 
+## 🚀 Production Deployment
+
+### Vercel Deployment (Recommended)
+
+1. **Set up MongoDB Atlas**
+   - Create a free account at [mongodb.com/atlas](https://mongodb.com/atlas)
+   - Create a cluster and get your connection string
+   - Add your connection string to Vercel environment variables as `MONGO_URI`
+
+2. **Deploy to Vercel**
+   ```bash
+   npm install -g vercel
+   vercel --prod
+   ```
+
+3. **Seed the production database**
+   ```bash
+   # Set your MONGO_URI environment variable
+   export MONGO_URI="your-mongodb-atlas-connection-string"
+   
+   # Run the setup script
+   node setup-production.js
+   ```
+
+### Video Content
+
+**Current Implementation**: The reels page uses hardcoded YouTube video URLs for the hackathon demo. This ensures the videos work perfectly on Vercel without requiring a database setup.
+
+**Featured Videos**:
+1. `https://www.youtube.com/watch?v=Qb4zV2oFYyE`
+2. `https://www.youtube.com/watch?v=Z6Dx-o3vfJY`
+3. `https://www.youtube.com/watch?v=SDMi6jeIwy4`
+4. `https://www.youtube.com/watch?v=G6BZjXiLg8g`
+5. `https://youtu.be/4qGXBlszbTY`
+
+The videos are embedded directly in the reels page and will work immediately when deployed to Vercel.
+
 ## 📱 Application Structure
 
 ### Pages

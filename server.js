@@ -33,10 +33,15 @@ const connectDB = async () => {
     let mongoURI = process.env.MONGO_URI;
     
     if (!mongoURI) {
-      console.log('🚀 Starting in-memory MongoDB for development...');
-      const mongod = await MongoMemoryServer.create();
-      mongoURI = mongod.getUri();
-      console.log('✅ In-memory MongoDB started at:', mongoURI);
+      // Only use in-memory for local development
+      if (process.env.NODE_ENV === 'development') {
+        console.log('🚀 Starting in-memory MongoDB for development...');
+        const mongod = await MongoMemoryServer.create();
+        mongoURI = mongod.getUri();
+        console.log('✅ In-memory MongoDB started at:', mongoURI);
+      } else {
+        throw new Error('MONGO_URI environment variable is required for production');
+      }
     }
     
     await mongoose.connect(mongoURI, {
@@ -532,13 +537,11 @@ app.get('/api/feed', async (req, res) => {
   }
 });
 
-// ==================== SEED ENDPOINT (Development Only) ====================
+// ==================== SEED ENDPOINT ====================
 app.post('/api/seed-videos', async (req, res) => {
   try {
-    // Only allow in development
-    if (process.env.NODE_ENV === 'production') {
-      return apiResponse(res, 403, false, null, 'Seed endpoint not available in production');
-    }
+    // Allow seeding in both development and production
+    // In production, this will populate the persistent database
 
     // Your YouTube video links (excluding shorts, with new video at bottom)
     const newVideoLinks = [
