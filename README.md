@@ -2,7 +2,7 @@
 
 **Discover Local Businesses Through Authentic Short-Form Videos**
 
-LocalLens is a revolutionary social platform that connects communities with local businesses through engaging short-form video content. Built for BigRedHacks 2024, LocalLens transforms how people discover and interact with local businesses by providing authentic, video-driven experiences.
+LocalLens is a revolutionary social platform that connects communities with local businesses through engaging short-form video content. Built for BigRedHacks 2025, LocalLens transforms how people discover and interact with local businesses by providing authentic, video-driven experiences.
 
 ## 🌟 Features
 
@@ -177,7 +177,7 @@ The application currently features curated YouTube videos showcasing local busin
 
 ## 📄 License
 
-This project is developed for BigRedHacks 2024. All rights reserved.
+This project is developed for BigRedHacks 2025. All rights reserved.
 
 ## 🤝 Contributing
 
@@ -186,11 +186,11 @@ This is a hackathon project. For questions or collaboration opportunities, pleas
 ## 📞 Contact
 
 - **GitHub**: [BigRedHacks-HackShack](https://github.com/gabemeredith/BigRedHacks-HackShack)
-- **Event**: BigRedHacks 2024
+- **Event**: BigRedHacks 2025
 - **Location**: Cornell University
 
 ---
 
-**Built with ❤️ for BigRedHacks 2024**
+**Built with ❤️ for BigRedHacks**
 
 *LocalLens - Connecting communities through authentic business stories*
